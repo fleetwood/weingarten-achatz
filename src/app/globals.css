@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Encode+Sans:wght@300;400;500;600;700&family=Commissioner:wght@300;400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Literata:opsz,wght@7..72,400;7..72,500&family=Figtree:wght@300;400;500;600;700&family=Bitter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Encode Sans", system-ui, sans-serif;
+  font-weight: 400;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* --amaranth: 341 75% 51%;
+    --plum       : 299 57% 31%;
+    --palatinate : 309 76% 20%;
+    --persian    : 165 70% 41%;
+    --picton     : 187 70% 42%;
+    --apple      : 68 73% 38%;
+    --vesuvius   : 40 85% 47%;
+    --paper      : 20 20% 90%;
+    --smoke      : 20 20% 85%;
+    --soot       : 47 16% 16%;
+    --eerie      : 44 16% 8%;
+    --void       : 42 12% 10%;
+    --transparent: 0 0% 0%; */
+
+    /* CSS HEX */
+    --licorice: 0, 5%, 5%;
+    --wenge: 5, 6%, 40%;
+    --silver: 8, 6%, 67%;
+    --platinum: 210, 3%, 87%;
+    --indian-red: 355, 35%, 56%;
+    --turkey-red: 0, 100%, 35%;
+    --golden-brown: 34, 98%, 32%;
+    --transparent: 0 0% 0%;
+
+    --background: var(--platinum);
+    --foreground: var(--licorice);
+
+    --card: var(--platinum);
+    --card-foreground: var(--licorice);
+
+    --popover: var(--platinum);
+    --popover-foreground: var(--licorice);
+
+    --primary: var(--platinum);
+    --primary-foreground: var(--licorice);
+
+    --secondary: var(--wenge);
+    --secondary-foreground: var(--platinum);
+
+    --alt: var(--golden-brown);
+    --alt-foreground: var(--platinum);
+
+    --muted: var(--silver);
+    --muted-foreground: var(--wenge);
+
+    --accent: var(--indian-red);
+    --accent-foreground: var(--platinum);
+
+    --destructive: var(--turkey-red);
+    --destructive-foreground: var(--platinum);
+
+    --warning: var(--golden-brown);
+    --warning-foreground: var(--platinum);
+
+    --success: var(--wenge);
+    --success-foreground: var(--platinum);
+
+    --border: var(--silver);
+    --input: var(--silver);
+    --ring: var(--turkey-red);
+
+    --radius: 0.5rem;
+
+    --shadow: var(--licorice);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
