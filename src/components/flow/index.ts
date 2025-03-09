@@ -6,5 +6,4 @@ export * from './FlowSelections';
 export * from './FlowSelection';
 export * from './FlowSelectionTitle';
 export * from './FlowSelectionContent';
-export * from './types';
 export * from './variants';

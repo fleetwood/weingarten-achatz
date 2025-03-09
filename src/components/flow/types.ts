@@ -1,6 +1,5 @@
 import React from "react";
 
-// Variant type for all flow components
 export type VariantType = 
   | "default"
   | "primary"
@@ -10,47 +9,87 @@ export type VariantType =
   | "destructive"
   | "none";
 
-// FlowStep Context to share state between components
 export type FlowStepContextType = {
   variant: VariantType;
 };
 
-// Create context with default value
 export const FlowStepContext = React.createContext<FlowStepContextType>({ variant: "default" });
 
-// FlowStepTitle component props
+export type FlowContentContextType = {
+  isContentVisible : boolean;
+  setContentVisible: (visible: boolean) => void;
+};
+
+export const FlowContentContext = React.createContext<FlowContentContextType>({ 
+  isContentVisible : false,
+  setContentVisible: () => {}
+});
+
+export type Listener = () => void;
+
+export const contentVisibilityState = {
+  isVisible: false,
+  listeners: new Set<Listener>(),
+  
+  setVisible(visible: boolean): void {
+    this.isVisible = visible;
+    this.notifyListeners();
+  },
+  
+  addListener(listener: Listener): () => void {
+    this.listeners.add(listener);
+    return () => {
+      this.listeners.delete(listener);
+    };
+  },
+  
+  notifyListeners(): void {
+    this.listeners.forEach(listener => listener());
+  }
+};
+
 export type FlowStepTitleProps = {
-  children: React.ReactNode;
-  variant?: VariantType;
+  children  : React.ReactNode;
+  variant  ?: VariantType;
   className?: string;
-  shadow?: 'default' | 'secondary' | 'muted' | 'alt' | 'destructive' | 'none';
+  shadow   ?: 'default' | 'secondary' | 'muted' | 'alt' | 'destructive' | 'none';
 };
 
-// FlowStepContent component props
-export type FlowStepContentProps = {
-  children: React.ReactNode;
-  variant?: VariantType;
-  className?: string;
-};
-
-// FlowSelections component props
 export type FlowSelectionsProps = {
-  children: React.ReactNode;
+  children  : React.ReactNode;
   className?: string;
 };
 
-// FlowSelection component props
 export type FlowSelectionProps = {
-  children: React.ReactNode;
+  children  : React.ReactNode;
   className?: string;
-  onClick?: () => void;
-  bg?: string;
-  variant?: VariantType;
+  onClick  ?: () => void;
+  bg       ?: string;
+  variant  ?: VariantType;
 };
 
-// FlowStep main component props
+export type FlowSelectionTitleProps = {
+  children   : React.ReactNode;
+  className ?: string;
+  variant   ?: VariantType;
+  hasContent?: boolean;
+};
+
+export type FlowSelectionContentProps = {
+  children  : React.ReactNode;
+  className?: string;
+  variant  ?: VariantType;
+};
+
 export type FlowStepProps = {
-  bg?: string;
-  children: React.ReactNode;
-  variant?: VariantType;
+  bg      ?: string;
+  children : React.ReactNode;
+  variant ?: VariantType;
+};
+
+  // FlowStepContent component props
+export type FlowStepContentProps = {
+  children  : React.ReactNode;
+  variant  ?: VariantType;
+  className?: string;
 };

@@ -13,7 +13,7 @@ import { FlowSelectionContent } from "@/components/flow-step";
 export default function Home() {
   return (
     <main className="min-h-screen h-screen w-full flex flex-col">
-      <FlowStep bg="/images/01.jpeg" variant="alt">
+      <FlowStep bg="/images/01.jpeg" variant="secondary">
         <FlowStepTitle>
           GOURMET EXPERIENCE
         </FlowStepTitle>
