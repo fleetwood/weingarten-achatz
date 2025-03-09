@@ -43,19 +43,19 @@ export default function Home() {
               </div>
             </FlowSelectionContent>
           </FlowSelection>
-          <FlowSelection bg="/images/04.jpeg">
-            <FlowSelectionContent>
+          <FlowSelection>
+            <FlowSelectionContent variant="alt">
               <h2 className={"w-full py-20 p-2 text-center font-semibold"}
-                style={{ textShadow: `2px 2px 2px #22222299` }}
+                style={{ textShadow: `3px 3px 3px #000000cc` }}
               >
                 ARTISANAL DESSERTS
               </h2>
             </FlowSelectionContent>
           </FlowSelection>
           <FlowSelection bg="/images/05.jpeg">
-            <FlowSelectionContent>
+            <FlowSelectionContent variant="secondary">
               <h2 className={"w-full py-20 p-2 text-center font-semibold"}
-                style={{ textShadow: `2px 2px 2px #22222299` }}
+                style={{ textShadow: `3px 3px 3px #000000cc` }}
               >
                 GORGEOUS STUFF
               </h2>
