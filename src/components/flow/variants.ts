@@ -36,6 +36,24 @@ export const titleVariants = cva("", {
   },
 });
 
+// Variant specifically for title text foreground colors
+export const titleForegroundVariants = cva("", {
+  variants: {
+    variant: {
+      default: "text-default-foreground",
+      primary: "text-primary-foreground",
+      secondary: "text-secondary-foreground",
+      muted: "text-muted-foreground",
+      alt: "text-alt-foreground",
+      destructive: "text-destructive-foreground",
+      none: "text-white",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
 // Variant for using background color as text color
 export const bgAsTextVariants = cva("", {
   variants: {

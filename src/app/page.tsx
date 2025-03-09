@@ -1,19 +1,19 @@
 "use client";
 
 import {
-  FlowStep,
-  FlowStepTitle,
-  FlowStepContent,
-  FlowSelections,
   FlowSelection,
+  FlowSelections,
   FlowSelectionTitle,
-  FlowSelectionContent,
+  FlowStep,
+  FlowStepContent,
+  FlowStepTitle
 } from "@/components/flow";
+import { FlowSelectionContent } from "@/components/flow-step";
 
 export default function Home() {
   return (
     <main className="min-h-screen h-screen w-full flex flex-col">
-      <FlowStep bg="/images/01.jpeg" variant="primary">
+      <FlowStep bg="/images/01.jpeg" variant="alt">
         <FlowStepTitle>
           GOURMET EXPERIENCE
         </FlowStepTitle>
@@ -24,44 +24,27 @@ export default function Home() {
           </div>
         </FlowStepContent>
         <FlowSelections>
+          
           <FlowSelection bg="/images/02.jpeg">
-            <FlowSelectionTitle>Farm-to-Table</FlowSelectionTitle>
-            <FlowSelectionContent>
-              <div className="w-fit h-fit m-auto text- mt-10 p-2 rounded-lg">
-                <p className="font-semibold">
-                  ORGANIC HARVEST
-                </p>
-              </div>
-            </FlowSelectionContent>
+            <FlowSelectionTitle hasContent={true}>Farm-to-Table</FlowSelectionTitle>
+            <FlowSelectionContent>ORGANIC HARVEST</FlowSelectionContent>
           </FlowSelection>
+          
           <FlowSelection bg="/images/03.jpeg">
             <FlowSelectionTitle>Molecular Gastronomy</FlowSelectionTitle>
-            <FlowSelectionContent>
-              <div className="w-fit h-fit m-auto text- mt-10 p-2 rounded-lg">
-                <p className="font-semibold">
-                  CULINARY SCIENCE
-                </p>
-              </div>
-            </FlowSelectionContent>
           </FlowSelection>
+          
           <FlowSelection>
-            <FlowSelectionContent variant="alt">
-              <h2 className={"w-full py-20 p-2 text-center font-semibold"}
+            <FlowSelectionTitle>Artisinal Desserts</FlowSelectionTitle>
+            {/* <FlowSelectionContent variant="alt">
+              <h3 className={"w-full py-20 p-2 text-center font-semibold"}
                 style={{ textShadow: `3px 3px 3px #000000cc` }}
               >
                 ARTISANAL DESSERTS
-              </h2>
-            </FlowSelectionContent>
+              </h3>
+            </FlowSelectionContent> */}
           </FlowSelection>
-          <FlowSelection bg="/images/05.jpeg">
-            <FlowSelectionContent variant="secondary">
-              <h2 className={"w-full py-20 p-2 text-center font-semibold"}
-                style={{ textShadow: `3px 3px 3px #000000cc` }}
-              >
-                GORGEOUS STUFF
-              </h2>
-            </FlowSelectionContent>
-          </FlowSelection>
+
         </FlowSelections>
       </FlowStep>
     </main>

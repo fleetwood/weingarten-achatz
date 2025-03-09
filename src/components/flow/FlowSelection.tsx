@@ -11,6 +11,19 @@ export type FlowSelectionProps = {
   variant?: VariantType;
 };
 
+// Helper function to get variant color
+const getVariantColor = (variant: VariantType) => {
+  switch (variant) {
+    case 'default': return 'hsl(var(--default))';
+    case 'primary': return 'hsl(var(--primary))';
+    case 'secondary': return 'hsl(var(--secondary))';
+    case 'muted': return 'hsl(var(--muted))';
+    case 'alt': return 'hsl(var(--alt))';
+    case 'destructive': return 'hsl(var(--destructive))';
+    default: return 'hsl(var(--licorice))';
+  }
+};
+
 export const FlowSelection = (props: FlowSelectionProps) => {
   const { children, className, onClick, bg, variant: propVariant } = props;
   const { variant: contextVariant } = React.useContext(FlowStepContext);
@@ -27,6 +40,7 @@ export const FlowSelection = (props: FlowSelectionProps) => {
   
   return (
     <div 
+      data-flow-selection="true"
       className={cn(
         "group flex flex-col h-28 sm:h-36 overflow-hidden cursor-pointer rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl relative",
         className
@@ -41,7 +55,7 @@ export const FlowSelection = (props: FlowSelectionProps) => {
       {variant !== 'none' && variant !== 'default' && (
         <div 
           className="absolute inset-0 mix-blend-overlay opacity-30 group-hover:opacity-40 transition-opacity"
-          style={{ backgroundColor: `hsl(var(--${variant}))` }}
+          style={{ backgroundColor: getVariantColor(variant) }}
         ></div>
       )}
       

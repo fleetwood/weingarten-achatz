@@ -1,15 +1,13 @@
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import React from "react";
+import { FlowSelectionContent } from "./flow/FlowSelectionContent";
+import { FlowStepTitle } from "./flow/FlowStepTitle";
+import { FlowStepContext, VariantType, FlowStepContentProps, FlowSelectionsProps, FlowSelectionProps, FlowStepProps } from "./flow/types";
 
-type VariantType = 
-  | "default"
-  | "primary"
-  | "secondary"
-  | "muted"
-  | "alt"
-  | "destructive"
-  | "none";
+// Helper functions moved to FlowSelectionContent.tsx
+
+// VariantType imported from types.ts
 
 // Variant for the container background and text
 const containerVariants = cva("", {
@@ -29,23 +27,7 @@ const containerVariants = cva("", {
   },
 });
 
-// Variant for title text only
-const titleVariants = cva("", {
-  variants: {
-    variant: {
-      default: "text-foreground",
-      primary: "text-primary-foreground",
-      secondary: "text-secondary-foreground",
-      muted: "text-muted-foreground",
-      alt: "text-alt-foreground",
-      destructive: "text-destructive-foreground",
-      none: ""
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
+// titleVariants moved to variants.ts
 
 // Variant for background colors as text colors
 const bgAsTextVariants = cva("", {
@@ -65,19 +47,9 @@ const bgAsTextVariants = cva("", {
   },
 });
 
-// FlowStep Context to share state between components
-type FlowStepContextType = {
-  variant: VariantType;
-};
+// FlowStepContext imported from types.ts
 
-const FlowStepContext = React.createContext<FlowStepContextType>({ variant: "default" });
-
-// FlowStep main component
-export type FlowStepProps = {
-  bg?: string;
-  children: React.ReactNode;
-  variant?: VariantType;
-};
+// FlowStepProps imported from types.ts
 
 const FlowStep = (props: FlowStepProps) => {
   const {
@@ -105,65 +77,13 @@ const FlowStep = (props: FlowStepProps) => {
   );
 };
 
-// FlowStepTitle component
-export type FlowStepTitleProps = {
-  children: React.ReactNode;
-  variant?: VariantType;
-  className?: string;
-  shadow?: 'default' | 'secondary' | 'muted' | 'alt' | 'destructive' | 'none';
-};
+// FlowStepTitleProps imported from types.ts
 
-// Function to get shadow color based on variant
-const getShadowColor = (shadowVariant: FlowStepTitleProps['shadow'] = 'default') => {
-  switch (shadowVariant) {
-    case 'default':
-      return '#000'; // Black shadow
-    case 'secondary':
-      return 'hsl(var(--secondary))'; // Secondary color shadow
-    case 'muted':
-      return 'hsl(var(--muted))'; // Muted color shadow
-    case 'alt':
-      return 'hsl(var(--alt))'; // Alt color shadow
-    case 'destructive':
-      return 'hsl(var(--destructive))'; // Destructive color shadow
-    case 'none':
-      return 'transparent'; // No shadow
-    default:
-      return '#000'; // Default to black
-  }
-};
+// getShadowColor function moved to FlowStepTitle.tsx
 
-const FlowStepTitle = (props: FlowStepTitleProps) => {
-  const { children, variant: propVariant, className, shadow = 'default' } = props;
-  const { variant: contextVariant } = React.useContext(FlowStepContext);
-  const variant = propVariant || contextVariant;
-  
-  // Get the shadow color based on the shadow prop
-  const shadowColor = getShadowColor(shadow);
-  
-  // Create text shadow style with the appropriate color
-  const textShadowStyle = shadow === 'none' 
-    ? {} 
-    : { textShadow: `1px 1px 2px ${shadowColor}` };
+// FlowStepTitle component moved to its own file
 
-  return (
-    <div className={"mt-8 sm:mt-16 md:mt-24 w-full sm:w-[60%] md:w-[40%] py-2 sm:py-4 px-4 sm:px-12 md:px-24"}>
-      <h1 
-        className={cn("my-0 text-3xl sm:text-4xl md:text-5xl", titleVariants({ variant }), className)}
-        style={textShadowStyle}
-      >
-        {children}
-      </h1>
-    </div>
-  );
-};
-
-// FlowStepContent component
-export type FlowStepContentProps = {
-  children: React.ReactNode;
-  variant?: VariantType;
-  className?: string;
-};
+// FlowStepContentProps imported from types.ts
 
 const FlowStepContent = (props: FlowStepContentProps) => {
   const { children, variant: propVariant, className } = props;
@@ -185,11 +105,7 @@ const FlowStepContent = (props: FlowStepContentProps) => {
   );
 };
 
-// FlowSelections component
-export type FlowSelectionsProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+// FlowSelectionsProps imported from types.ts
 
 const FlowSelections = (props: FlowSelectionsProps) => {
   const { children, className } = props;
@@ -213,14 +129,7 @@ const FlowSelections = (props: FlowSelectionsProps) => {
   );
 };
 
-// FlowSelection component
-export type FlowSelectionProps = {
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-  bg?: string;
-  variant?: VariantType;
-};
+// FlowSelectionProps imported from types.ts
 
 const FlowSelection = (props: FlowSelectionProps) => {
   const { children, className, onClick, bg } = props;
@@ -274,28 +183,7 @@ const FlowSelectionTitle = (props: FlowSelectionTitleProps) => {
   );
 };
 
-// FlowSelectionContent component
-export type FlowSelectionContentProps = {
-  children: React.ReactNode;
-  className?: string;
-  variant?: VariantType;
-};
-
-const FlowSelectionContent = (props: FlowSelectionContentProps) => {
-  const { children, className, variant: propVariant } = props;
-  const { variant: contextVariant } = React.useContext(FlowStepContext);
-  const variant = propVariant || contextVariant;
-  
-  return (
-    <div className={cn(
-      "p-2 text-sm sm:text-base flex items-center justify-center h-full", 
-      variant !== 'none' && titleVariants({ variant }), // Only apply text color, not background
-      className
-    )}>
-      {children}
-    </div>
-  );
-};
+// FlowSelectionContent is now imported from its own file
 
 // Export components
 FlowStep.displayName = "FlowStep";
