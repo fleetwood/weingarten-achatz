@@ -1,13 +1,14 @@
 "use client";
 
-import FlowStep, {
+import {
+  FlowStep,
   FlowStepTitle,
   FlowStepContent,
   FlowSelections,
   FlowSelection,
   FlowSelectionTitle,
   FlowSelectionContent,
-} from "@/components/flow-step";
+} from "@/components/flow";
 
 export default function Home() {
   return (
