@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import { VariantType } from "./types";
+import { FlowStepContext, VariantType } from "./types";
 
 // FlowSelection component
 export type FlowSelectionProps = {
@@ -12,9 +12,9 @@ export type FlowSelectionProps = {
 };
 
 export const FlowSelection = (props: FlowSelectionProps) => {
-  const { children, className, onClick, bg } = props;
-  // We're not using variant directly in this component anymore, but we keep it in the props
-  // for type consistency with other components
+  const { children, className, onClick, bg, variant: propVariant } = props;
+  const { variant: contextVariant } = React.useContext(FlowStepContext);
+  const variant = propVariant || contextVariant;
   
   // Apply background image if provided
   const bgStyle = bg
@@ -28,12 +28,23 @@ export const FlowSelection = (props: FlowSelectionProps) => {
   return (
     <div 
       className={cn(
-        "flex flex-col h-24 sm:h-32 overflow-hidden cursor-pointer transition-all duration-200 ease-in-out hover:opacity-90",
+        "group flex flex-col h-28 sm:h-36 overflow-hidden cursor-pointer rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl relative",
         className
       )}
       style={bgStyle}
       onClick={onClick}
     >
+      {/* Add overlay gradient for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--licorice))] to-transparent opacity-70 group-hover:opacity-80 transition-opacity"></div>
+      
+      {/* Apply variant background color as an overlay */}
+      {variant !== 'none' && variant !== 'default' && (
+        <div 
+          className="absolute inset-0 mix-blend-overlay opacity-30 group-hover:opacity-40 transition-opacity"
+          style={{ backgroundColor: `hsl(var(--${variant}))` }}
+        ></div>
+      )}
+      
       {children}
     </div>
   );

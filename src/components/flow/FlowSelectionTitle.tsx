@@ -17,11 +17,16 @@ export const FlowSelectionTitle = (props: FlowSelectionTitleProps) => {
   
   return (
     <div className={cn(
-      "w-full p-1 sm:p-2 text-center font-semibold text-sm sm:text-base", 
+      "w-full p-2 sm:p-3 text-center font-semibold sm:text-base backdrop-blur-sm relative z-10", 
       variant !== 'none' && bgAsTextVariants({ variant }),
-      variant !== 'none' && containerVariants({ variant }),
+      variant !== 'none' && containerVariants({ variant: 'none' }),
       className
-    )}>
+    )}
+    style={{
+      textShadow: `2px 2px 2px hsla(var(--licorice), 0.8)`,
+      backgroundColor: 'hsla(var(--licorice), 0.3)'
+    }}
+    >
       {children}
     </div>
   );

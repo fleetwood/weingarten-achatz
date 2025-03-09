@@ -13,13 +13,13 @@ import {
 export default function Home() {
   return (
     <main className="min-h-screen h-screen w-full flex flex-col">
-      <FlowStep bg="/images/01.jpeg" variant="muted">
+      <FlowStep bg="/images/01.jpeg" variant="primary">
         <FlowStepTitle>
           GOURMET EXPERIENCE
         </FlowStepTitle>
         <FlowStepContent>
-          <div className="p-12 rounded-lg">
-            <h2>Culinary Masterpieces</h2>
+          <div className="p-8 rounded-lg">
+            <h3>Culinary Masterpieces</h3>
             <p>Indulge in our gastronomic symphony where locally-sourced heirloom tomatoes dance with aged balsamic reduction. Our chef&apos;s tasting menu features hand-harvested microgreens and butter-poached lobster tail, finished with edible gold leaf and Madagascar vanilla foam.</p>
           </div>
         </FlowStepContent>

@@ -15,15 +15,21 @@ export const FlowSelections = (props: FlowSelectionsProps) => {
   };
   
   return (
-    <div className="mt-auto flex">
+    <div className="mt-auto flex w-full">
       <div 
         className={cn(
-          "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 w-full", 
+          "flex flex-col sm:flex-row flex-wrap w-full", 
           className
         )}
         style={bgStyle}
       >
-        {children}
+        {React.Children.map(children, (child) => (
+          child ? (
+            <div className="flex-1 min-w-[50%] sm:min-w-[25%]">
+              {child}
+            </div>
+          ) : null
+        ))}
       </div>
     </div>
   );
