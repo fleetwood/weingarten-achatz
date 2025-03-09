@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Encode+Sans:wght@300;400;500;600;700&family=Commissioner:wght@300;400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Literata:opsz,wght@7..72,400;7..72,500&family=Figtree:wght@300;400;500;600;700&family=Bitter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,23 +13,34 @@ body {
   }
 }
 
+@layer components {
+  h1 {
+    @apply text-6xl font-bold;
+  }
+  
+  h2 {
+    @apply text-5xl font-semibold;
+  }
+  
+  h3 {
+    @apply text-3xl font-medium;
+  }
+  
+  h4 {
+    @apply text-xl font-medium;
+  }
+  
+  h5 {
+    @apply text-lg font-medium;
+  }
+  
+  h6 {
+    @apply text-base font-medium;
+  }
+}
+
 @layer base {
   :root {
-    /* --amaranth: 341 75% 51%;
-    --plum       : 299 57% 31%;
-    --palatinate : 309 76% 20%;
-    --persian    : 165 70% 41%;
-    --picton     : 187 70% 42%;
-    --apple      : 68 73% 38%;
-    --vesuvius   : 40 85% 47%;
-    --paper      : 20 20% 90%;
-    --smoke      : 20 20% 85%;
-    --soot       : 47 16% 16%;
-    --eerie      : 44 16% 8%;
-    --void       : 42 12% 10%;
-    --transparent: 0 0% 0%; */
-
-    /* CSS HEX */
     --licorice: 0, 5%, 5%;
     --wenge: 5, 6%, 40%;
     --silver: 8, 6%, 67%;
@@ -58,7 +67,7 @@ body {
 
     --alt: var(--golden-brown);
     --alt-foreground: var(--platinum);
-
+    
     --muted: var(--silver);
     --muted-foreground: var(--wenge);
 

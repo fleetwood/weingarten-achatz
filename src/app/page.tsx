@@ -1,140 +1,68 @@
-
-
 "use client";
+
+import FlowStep, {
+  FlowStepTitle,
+  FlowStepContent,
+  FlowSelections,
+  FlowSelection,
+  FlowSelectionTitle,
+  FlowSelectionContent,
+} from "@/components/flow-step";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <section className="p-8 bg-background text-foreground">
-        <h1 className="mb-4">Weingarten Achatz</h1>
-        <p className="text-xl mb-6">Color System Demo</p>
-      </section>
-      
-      {/* Semantic Colors */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-4 p-8">
-        <div className="p-6 rounded-lg bg-primary text-primary-foreground">
-          <h3 className="mb-2">Primary</h3>
-          <p>Primary color with foreground text</p>
-          <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-            bg-primary / text-primary-foreground
+    <main className="min-h-screen h-screen w-full flex flex-col">
+      <FlowStep bg="/images/01.jpeg" variant="muted">
+        <FlowStepTitle>
+          GOURMET EXPERIENCE
+        </FlowStepTitle>
+        <FlowStepContent>
+          <div className="p-12 rounded-lg">
+            <h2>Culinary Masterpieces</h2>
+            <p>Indulge in our gastronomic symphony where locally-sourced heirloom tomatoes dance with aged balsamic reduction. Our chef&apos;s tasting menu features hand-harvested microgreens and butter-poached lobster tail, finished with edible gold leaf and Madagascar vanilla foam.</p>
           </div>
-        </div>
-        
-        <div className="p-6 rounded-lg bg-secondary text-secondary-foreground">
-          <h3 className="mb-2">Secondary</h3>
-          <p>Secondary color with foreground text</p>
-          <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-            bg-secondary / text-secondary-foreground
-          </div>
-        </div>
-        
-        <div className="p-6 rounded-lg bg-accent text-accent-foreground">
-          <h3 className="mb-2">Accent</h3>
-          <p>Accent color with foreground text</p>
-          <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-            bg-accent / text-accent-foreground
-          </div>
-        </div>
-        
-        <div className="p-6 rounded-lg bg-muted text-muted-foreground">
-          <h3 className="mb-2">Muted</h3>
-          <p>Muted color with foreground text</p>
-          <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-            bg-muted / text-muted-foreground
-          </div>
-        </div>
-        
-        <div className="p-6 rounded-lg bg-destructive text-destructive-foreground">
-          <h3 className="mb-2">Destructive</h3>
-          <p>Destructive color with foreground text</p>
-          <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-            bg-destructive / text-destructive-foreground
-          </div>
-        </div>
-        
-        <div className="p-6 rounded-lg bg-alt text-alt-foreground">
-          <h3 className="mb-2">Alt</h3>
-          <p>Alt color with foreground text</p>
-          <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-            bg-alt / text-alt-foreground
-          </div>
-        </div>
-      </section>
-      
-      {/* Brand Colors */}
-      <section className="p-8">
-        <h2 className="mb-4">Brand Colors</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="p-6 rounded-lg bg-licorice text-silver">
-            <h3 className="mb-2">Licorice</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-licorice
-            </div>
-          </div>
-          
-          <div className="p-6 rounded-lg bg-wenge text-silver">
-            <h3 className="mb-2">Wenge</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-wenge
-            </div>
-          </div>
-          
-          <div className="p-6 rounded-lg bg-silver text-licorice">
-            <h3 className="mb-2">silver</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-silver
-            </div>
-          </div>
-          
-          <div className="p-6 rounded-lg bg-platinum text-licorice">
-            <h3 className="mb-2">Platinum</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-platinum
-            </div>
-          </div>
-          
-          <div className="p-6 rounded-lg bg-indian-red text-silver">
-            <h3 className="mb-2">Indian Red</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-indian-red
-            </div>
-          </div>
-          
-          <div className="p-6 rounded-lg bg-turkey-red text-silver">
-            <h3 className="mb-2">Turkey Red</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-turkey-red
-            </div>
-          </div>
-          
-          <div className="p-6 rounded-lg bg-golden-brown text-silver">
-            <h3 className="mb-2">Golden Brown</h3>
-            <p>Base brand color</p>
-            <div className="mt-4 p-2 bg-background text-foreground rounded text-sm">
-              bg-golden-brown
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Dark Mode Toggle */}
-      <section className="p-8 text-center">
-        <button 
-          className="px-4 py-2 bg-primary text-primary-foreground rounded-md"
-          onClick={() => {
-            document.documentElement.classList.toggle('dark');
-          }}
-        >
-          Toggle Dark Mode
-        </button>
-        <p className="mt-2 text-sm">Click to toggle between light and dark mode</p>
-      </section>
+        </FlowStepContent>
+        <FlowSelections>
+          <FlowSelection bg="/images/02.jpeg">
+            <FlowSelectionTitle>Farm-to-Table</FlowSelectionTitle>
+            <FlowSelectionContent>
+              <div className="w-fit h-fit m-auto text- mt-10 p-2 rounded-lg">
+                <p className="font-semibold">
+                  ORGANIC HARVEST
+                </p>
+              </div>
+            </FlowSelectionContent>
+          </FlowSelection>
+          <FlowSelection bg="/images/03.jpeg">
+            <FlowSelectionTitle>Molecular Gastronomy</FlowSelectionTitle>
+            <FlowSelectionContent>
+              <div className="w-fit h-fit m-auto text- mt-10 p-2 rounded-lg">
+                <p className="font-semibold">
+                  CULINARY SCIENCE
+                </p>
+              </div>
+            </FlowSelectionContent>
+          </FlowSelection>
+          <FlowSelection bg="/images/04.jpeg">
+            <FlowSelectionContent>
+              <h2 className={"w-full py-20 p-2 text-center font-semibold"}
+                style={{ textShadow: `2px 2px 2px #22222299` }}
+              >
+                ARTISANAL DESSERTS
+              </h2>
+            </FlowSelectionContent>
+          </FlowSelection>
+          <FlowSelection bg="/images/05.jpeg">
+            <FlowSelectionContent>
+              <h2 className={"w-full py-20 p-2 text-center font-semibold"}
+                style={{ textShadow: `2px 2px 2px #22222299` }}
+              >
+                GORGEOUS STUFF
+              </h2>
+            </FlowSelectionContent>
+          </FlowSelection>
+        </FlowSelections>
+      </FlowStep>
     </main>
   );
 }

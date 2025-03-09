@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
+import { textShadowPlugin } from './src/lib/tw/text-shadow';
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -17,9 +18,16 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
-    extend: {
-      
+    extend: {      
       colors: {
+        licorice: 'hsl(var(--licorice))',
+        wenge: 'hsl(var(--wenge))',
+        silver: 'hsl(var(--silver))',
+        platinum: 'hsl(var(--platinum))',
+        'indian-red': 'hsl(var(--indian-red))',
+        'turkey-red': 'hsl(var(--turkey-red))',
+        'golden-brown': 'hsl(var(--golden-brown))',
+
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -29,45 +37,46 @@ const config: Config = {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
         },
+        'primary-foreground': 'hsl(var(--primary-foreground))',
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
+        'secondary-foreground': 'hsl(var(--secondary-foreground))',
         alt: {
           DEFAULT: 'hsl(var(--alt))',
           foreground: 'hsl(var(--alt-foreground))',
         },
+        'alt-foreground': 'hsl(var(--alt-foreground))',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
+        'destructive-foreground': 'hsl(var(--destructive-foreground))',
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
         },
+        'muted-foreground': 'hsl(var(--muted-foreground))',
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        'accent-foreground': 'hsl(var(--accent-foreground))',
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
         },
+        'popover-foreground': 'hsl(var(--popover-foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        'card-foreground': 'hsl(var(--card-foreground))',
         link: {
           DEFAULT: 'var(--link)',
           hover: 'var(--link-hover)',
         },
-        licorice: 'var(--licorice)',
-        wenge: 'var(--wenge)',
-        silver: 'var(--silver)',
-        platinum: 'var(--platinum)',
-        'indian-red': 'var(--indian-red)',
-        'turkey-red': 'var(--turkey-red)',
-        'golden-brown': 'var(--golden-brown)',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -94,6 +103,7 @@ const config: Config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    textShadowPlugin
   ],
 };
 export default config;
